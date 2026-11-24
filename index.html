@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Did Us — Site Under Construction</title>
+<meta name="description" content="Who Did Us — who approved it, who signed it, who ran it. Every name, from the documents. Site under construction.">
+<style>
+  :root{
+    --bg:#0b0a08;
+    --text:#f4eee1;
+    --muted:#bcb09c;
+    --amber:#f2a93b;
+    --panel-line:#2e2820;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 500px at 50% -120px, rgba(242,169,59,.14), rgba(242,169,59,0) 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px 20px;
+    min-height:100vh;
+    min-height:100svh;
+  }
+  .brand{
+    font-family:"Arial Narrow","Liberation Sans Narrow","Helvetica Neue",Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    font-size:clamp(52px,16vw,96px);
+    font-weight:700;
+    line-height:1.02;
+    margin:0;
+  }
+  .brand span{color:var(--amber)}
+  .status{
+    font-family:"Arial Narrow","Liberation Sans Narrow","Helvetica Neue",Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--amber);
+    font-size:clamp(17px,5vw,22px);
+    font-weight:700;
+    margin:26px 0 0;
+    padding-top:22px;
+    border-top:1px solid var(--panel-line);
+  }
+  .promise{
+    color:var(--muted);
+    font-size:clamp(16px,4.6vw,19px);
+    line-height:1.55;
+    max-width:520px;
+    margin:16px auto 0;
+  }
+  .promise strong{color:var(--text);font-weight:600}
+  footer{
+    margin-top:34px;
+    color:var(--muted);
+    font-size:14px;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1 class="brand">Who <span>Did</span> Us</h1>
+    <p class="status">Site Under Construction</p>
+    <p class="promise">Who approved it? Who signed it? Who ran it? — every name, from the documents.</p>
+  </main>
+  <footer>© 2026 Who Did Us</footer>
+</body>
+</html>
