@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Your Senators — Make Thune Call the Vote | Who Did Us</title>
+<meta name="description" content="Pick your state, get your two U.S. senators, and tell them: make Majority Leader Thune call the vote on the full-year funding bills before the December 11 deadline.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="Who Did Us — home">Who Did <span>Us</span></a>
+  <nav class="nav">
+    <a href="index.html#cases">Cases</a>
+    <a href="how-we-know.html">How We Know</a>
+    <a href="suggest-a-case.html">Suggest a Case</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+<main>
+  <section class="hero wrap">
+    <p class="eyebrow">Who's Doing Us Now</p>
+    <h1>Make Thune call the vote</h1>
+    <p class="lead">The full-year funding bills can pass before the December 11 deadline — if the Senate sets the filibuster aside and votes. Your two senators are the pressure. Pick your state, then email or call them. Two minutes.</p>
+    <div class="state-picker">
+      <label for="state-select">Your state</label>
+      <select id="state-select" aria-label="Choose your state">
+        <option value="">Choose your state…</option>
+          <option value="Alabama">Alabama</option>
+          <option value="Alaska">Alaska</option>
+          <option value="Arizona">Arizona</option>
+          <option value="Arkansas">Arkansas</option>
+          <option value="California">California</option>
+          <option value="Colorado">Colorado</option>
+          <option value="Connecticut">Connecticut</option>
+          <option value="Delaware">Delaware</option>
+          <option value="Florida">Florida</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Hawaii">Hawaii</option>
+          <option value="Idaho">Idaho</option>
+          <option value="Illinois">Illinois</option>
+          <option value="Indiana">Indiana</option>
+          <option value="Iowa">Iowa</option>
+          <option value="Kansas">Kansas</option>
+          <option value="Kentucky">Kentucky</option>
+          <option value="Louisiana">Louisiana</option>
+          <option value="Maine">Maine</option>
+          <option value="Maryland">Maryland</option>
+          <option value="Massachusetts">Massachusetts</option>
+          <option value="Michigan">Michigan</option>
+          <option value="Minnesota">Minnesota</option>
+          <option value="Mississippi">Mississippi</option>
+          <option value="Missouri">Missouri</option>
+          <option value="Montana">Montana</option>
+          <option value="Nebraska">Nebraska</option>
+          <option value="Nevada">Nevada</option>
+          <option value="New Hampshire">New Hampshire</option>
+          <option value="New Jersey">New Jersey</option>
+          <option value="New Mexico">New Mexico</option>
+          <option value="New York">New York</option>
+          <option value="North Carolina">North Carolina</option>
+          <option value="North Dakota">North Dakota</option>
+          <option value="Ohio">Ohio</option>
+          <option value="Oklahoma">Oklahoma</option>
+          <option value="Oregon">Oregon</option>
+          <option value="Pennsylvania">Pennsylvania</option>
+          <option value="Rhode Island">Rhode Island</option>
+          <option value="South Carolina">South Carolina</option>
+          <option value="South Dakota">South Dakota</option>
+          <option value="Tennessee">Tennessee</option>
+          <option value="Texas">Texas</option>
+          <option value="Utah">Utah</option>
+          <option value="Vermont">Vermont</option>
+          <option value="Virginia">Virginia</option>
+          <option value="Washington">Washington</option>
+          <option value="West Virginia">West Virginia</option>
+          <option value="Wisconsin">Wisconsin</option>
+          <option value="Wyoming">Wyoming</option>
+      </select>
+    </div>
+    <div id="senators" aria-live="polite"></div>
+    <p class="tiny center picker-note">Senators mostly answer their own constituents — that's why yours are the two who count. Names, phone numbers, and contact links come from the U.S. Senate's official directory at senate.gov.</p>
+  </section>
+
+  <section class="section wrap" id="message">
+    <h2 class="center">Say it like this</h2>
+    <p class="lead center">Copy this into the email form — or say it on the call. Add your name and hometown at the end so they know you're a constituent.</p>
+    <div class="message-box">
+      <p id="message-text">I&#x27;m one of your constituents. Please tell Majority Leader Thune to call the vote: end the filibuster blockade, pass the full-year funding bills before the December 11 deadline, and don&#x27;t hand the pen to the incoming majority with another stopgap. Get it done while this majority can.</p>
+      <button class="btn btn-primary" id="copy-btn" type="button">Copy the message</button>
+      <p class="tiny" id="copy-note" role="status"></p>
+    </div>
+    <div class="fact">
+      <strong>The door is open.</strong> This isn't about blame — it's about one decision that can still be made before December 11. Any senator who helps get the vote called gets named on this site under <strong>Who's Rescuing Us</strong> — on the record, in a good way.
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p class="brand">Who Did Us — whodidus.com</p>
+  <p>Every name on this site comes from a public document.</p>
+  <nav class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#cases">Cases</a>
+    <a href="how-we-know.html">How We Know</a>
+    <a href="suggest-a-case.html">Suggest a Case</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </nav>
+  <p>© 2026 Who Did Us</p>
+  <p class="tiny">Try Muse — my personal AI agent, free to start: <a href="https://muse.ai/join">https://muse.ai/join</a> — join free, then redeem code 0PQU7J in Settings within 48 hours and we both get 1 billion tokens.</p>
+</footer>
+<script>
+var SENATORS = {
+ "Alabama": [
+  {
+   "name": "Katie Boyd Britt",
+   "party": "Republican",
+   "phone": "(202) 224-5744",
+   "tel": "+12022245744",
+   "url": "https://www.britt.senate.gov/contact/"
+  },
+  {
+   "name": "Tommy Tuberville",
+   "party": "Republican",
+   "phone": "(202) 224-4124",
+   "tel": "+12022244124",
+   "url": "https://www.tuberville.senate.gov/contact/contact-form/"
+  }
+ ],
+ "Alaska": [
+  {
+   "name": "Lisa Murkowski",
+   "party": "Republican",
+   "phone": "(202) 224-6665",
+   "tel": "+12022246665",
+   "url": "https://www.murkowski.senate.gov/public/index.cfm/contact"
+  },
+  {
+   "name": "Dan Sullivan",
+   "party": "Republican",
+   "phone": "(202) 224-3004",
+   "tel": "+12022243004",
+   "url": "https://www.sullivan.senate.gov/contact/email"
+  }
+ ],
+ "Arizona": [
+  {
+   "name": "Ruben Gallego",
+   "party": "Democrat",
+   "phone": "(202) 224-4521",
+   "tel": "+12022244521",
+   "url": "https://www.gallego.senate.gov/connect/"
+  },
+  {
+   "name": "Mark Kelly",
+   "party": "Democrat",
+   "phone": "(202) 224-2235",
+   "tel": "+12022242235",
+   "url": "https://www.kelly.senate.gov/contact/contact-form/"
+  }
+ ],
+ "Arkansas": [
+  {
+   "name": "John Boozman",
+   "party": "Republican",
+   "phone": "(202) 224-4843",
+   "tel": "+12022244843",
+   "url": "https://www.boozman.senate.gov/public/index.cfm/contact"
+  },
+  {
+   "name": "Tom Cotton",
+   "party": "Republican",
+   "phone": "(202) 224-2353",
+   "tel": "+12022242353",
+   "url": "https://www.cotton.senate.gov/contact/contact-tom"
+  }
+ ],
+ "California": [
+  {
+   "name": "Alex Padilla",
+   "party": "Democrat",
+   "phone": "(202) 224-3553",
+   "tel": "+12022243553",
+   "url": "https://www.padilla.senate.gov/contact/"
+  },
+  {
+   "name": "Adam B. Schiff",
+   "party": "Democrat",
+   "phone": "(202) 224-3841",
+   "tel": "+12022243841",
+   "url": "https://www.schiff.senate.gov/contact/"
+  }
+ ],
+ "Colorado": [
+  {
+   "name": "Michael Bennet",
+   "party": "Democrat",
+   "phone": "(202) 224-5852",
+   "tel": "+12022245852",
+   "url": "https://www.bennet.senate.gov/public/index.cfm/contact"
+  },
+  {
+   "name": "John W. Hickenlooper",
+   "party": "Democrat",
+   "phone": "(202) 224-5941",
+   "tel": "+12022245941",
+   "url": "https://www.hickenlooper.senate.gov/contact/"
+  }
+ ],
+ "Connecticut": [
+  {
+   "name": "Richard Blumenthal",
+   "party": "Democrat",
+   "phone": "(202) 224-2823",
+   "tel": "+12022242823",
+   "url": "https://www.blumenthal.senate.gov/contact/"
+  },
+  {
+   "name": "Christopher Murphy",
+   "party": "Democrat",
+   "phone": "(202) 224-4041",
+   "tel": "+12022244041",
+   "url": "https://www.murphy.senate.gov/contact"
+  }
+ ],
+ "Delaware": [
+  {
+   "name": "Lisa Blunt Rochester",
+   "party": "Democrat",
+   "phone": "(202) 224-2441",
+   "tel": "+12022242441",
+   "url": "https://www.bluntrochester.senate.gov/contact/"
+  },
+  {
+   "name": "Christopher A. Coons",
+   "party": "Democrat",
+   "phone": "(202) 224-5042",
+   "tel": "+12022245042",
+   "url": "https://www.coons.senate.gov/contact"
+  }
+ ],
+ "Florida": [
+  {
+   "name": "Ashley Moody",
+   "party": "Republican",
+   "phone": "(202) 224-3041",
+   "tel": "+12022243041",
+   "url": "https://www.moody.senate.gov/contact-us/"
+  },
+  {
+   "name": "Rick Scott",
+   "party": "Republican",
+   "phone": "(202) 224-5274",
+   "tel": "+12022245274",
+   "url": "https://www.rickscott.senate.gov/contact/contact"
+  }
+ ],
+ "Georgia": [
+  {
+   "name": "Jon Ossoff",
+   "party": "Democrat",
+   "phone": "(202) 224-3521",
+   "tel": "+12022243521",
+   "url": "https://www.ossoff.senate.gov/contact-us/"
+  },
+  {
+   "name": "Raphael G. Warnock",
+   "party": "Democrat",
+   "phone": "(202) 224-3643",
+   "tel": "+12022243643",
+   "url": "https://www.warnock.senate.gov/contact/"
+  }
+ ],
+ "Hawaii": [
+  {
+   "name": "Mazie K. Hirono",
+   "party": "Democrat",
+   "phone": "(202) 224-6361",
+   "tel": "+12022246361",
+   "url": "https://www.hirono.senate.gov/contact"
+  },
+  {
+   "name": "Brian Schatz",
+   "party": "Democrat",
+   "phone": "(202) 224-3934",
+   "tel": "+12022243934",
+   "url": "https://www.schatz.senate.gov/contact"
+  }
+ ],
+ "Idaho": [
+  {
+   "name": "Mike Crapo",
+   "party": "Republican",
+   "phone": "(202) 224-6142",
+   "tel": "+12022246142",
+   "url": "https://www.crapo.senate.gov/contact"
+  },
+  {
+   "name": "James E. Risch",
+   "party": "Republican",
+   "phone": "(202) 224-2752",
+   "tel": "+12022242752",
+   "url": "https://www.risch.senate.gov/contact/"
+  }
+ ],
+ "Illinois": [
+  {
+   "name": "Tammy Duckworth",
+   "party": "Democrat",
+   "phone": "(202) 224-2854",
+   "tel": "+12022242854",
+   "url": "https://www.duckworth.senate.gov/content/contact-senator"
+  },
+  {
+   "name": "Richard J. Durbin",
+   "party": "Democrat",
+   "phone": "(202) 224-2152",
+   "tel": "+12022242152",
+   "url": "https://www.durbin.senate.gov/contact/"
+  }
+ ],
+ "Indiana": [
+  {
+   "name": "Jim Banks",
+   "party": "Republican",
+   "phone": "(202) 224-4814",
+   "tel": "+12022244814",
+   "url": "https://www.banks.senate.gov/contact/"
+  },
+  {
+   "name": "Todd Young",
+   "party": "Republican",
+   "phone": "(202) 224-5623",
+   "tel": "+12022245623",
+   "url": "https://www.young.senate.gov/contact"
+  }
+ ],
+ "Iowa": [
+  {
+   "name": "Joni Ernst",
+   "party": "Republican",
+   "phone": "(202) 224-3254",
+   "tel": "+12022243254",
+   "url": "https://www.ernst.senate.gov/public/index.cfm/contact"
+  },
+  {
+   "name": "Chuck Grassley",
+   "party": "Republican",
+   "phone": "(202) 224-3744",
+   "tel": "+12022243744",
+   "url": "https://www.grassley.senate.gov/contact"
+  }
+ ],
+ "Kansas": [
+  {
+   "name": "Roger Marshall",
+   "party": "Republican",
+   "phone": "(202) 224-4774",
+   "tel": "+12022244774",
+   "url": "https://www.marshall.senate.gov/contact/"
+  },
+  {
+   "name": "Jerry Moran",
+   "party": "Republican",
+   "phone": "(202) 224-6521",
+   "tel": "+12022246521",
+   "url": "https://www.moran.senate.gov/public/index.cfm/e-mail-jerry"
+  }
+ ],
+ "Kentucky": [
+  {
+   "name": "Mitch McConnell",
+   "party": "Republican",
+   "phone": "(202) 224-2541",
+   "tel": "+12022242541",
+   "url": "https://www.mcconnell.senate.gov/public/index.cfm?p=contact"
+  },
+  {
+   "name": "Rand Paul",
+   "party": "Republican",
+   "phone": "(202) 224-4343",
+   "tel": "+12022244343",
+   "url": "https://www.paul.senate.gov/connect/email-rand"
+  }
+ ],
+ "Louisiana": [
+  {
+   "name": "Bill Cassidy",
+   "party": "Republican",
+   "phone": "(202) 224-5824",
+   "tel": "+12022245824",
+   "url": "https://www.cassidy.senate.gov/contact"
+  },
+  {
+   "name": "John Kennedy",
+   "party": "Republican",
+   "phone": "(202) 224-4623",
+   "tel": "+12022244623",
+   "url": "https://www.kennedy.senate.gov/public/email-me"
+  }
+ ],
+ "Maine": [
+  {
+   "name": "Susan M. Collins",
+   "party": "Republican",
+   "phone": "(202) 224-2523",
+   "tel": "+12022242523",
+   "url": "https://www.collins.senate.gov/contact"
+  },
+  {
+   "name": "Angus S. King Jr.",
+   "party": "Independent",
+   "phone": "(202) 224-5344",
+   "tel": "+12022245344",
+   "url": "https://www.king.senate.gov/contact"
+  }
+ ],
+ "Maryland": [
+  {
+   "name": "Angela Alsobrooks",
+   "party": "Democrat",
+   "phone": "(202) 224-4524",
+   "tel": "+12022244524",
+   "url": "https://www.alsobrooks.senate.gov/contact/"
+  },
+  {
+   "name": "Chris Van Hollen",
+   "party": "Democrat",
+   "phone": "(202) 224-4654",
+   "tel": "+12022244654",
+   "url": "https://www.vanhollen.senate.gov/contact/email"
+  }
+ ],
+ "Massachusetts": [
+  {
+   "name": "Edward J. Markey",
+   "party": "Democrat",
+   "phone": "(202) 224-2742",
+   "tel": "+12022242742",
+   "url": "https://www.markey.senate.gov/contact"
+  },
+  {
+   "name": "Elizabeth Warren",
+   "party": "Democrat",
+   "phone": "(202) 224-4543",
+   "tel": "+12022244543",
+   "url": "https://www.warren.senate.gov/contact/"
+  }
+ ],
+ "Michigan": [
+  {
+   "name": "Gary C. Peters",
+   "party": "Democrat",
+   "phone": "(202) 224-6221",
+   "tel": "+12022246221",
+   "url": "https://www.peters.senate.gov/contact/email-gary"
+  },
+  {
+   "name": "Elissa Slotkin",
+   "party": "Democrat",
+   "phone": "(202) 224-4822",
+   "tel": "+12022244822",
+   "url": "https://www.slotkin.senate.gov/contact/"
+  }
+ ],
+ "Minnesota": [
+  {
+   "name": "Amy Klobuchar",
+   "party": "Democrat",
+   "phone": "(202) 224-3244",
+   "tel": "+12022243244",
+   "url": "https://www.klobuchar.senate.gov/public/index.cfm/contact"
+  },
+  {
+   "name": "Tina Smith",
+   "party": "Democrat",
+   "phone": "(202) 224-5641",
+   "tel": "+12022245641",
+   "url": "https://www.smith.senate.gov/share-your-opinion/"
+  }
+ ],
+ "Mississippi": [
+  {
+   "name": "Cindy Hyde-Smith",
+   "party": "Republican",
+   "phone": "(202) 224-5054",
+   "tel": "+12022245054",
+   "url": "https://www.hydesmith.senate.gov/contact-senator"
+  },
+  {
+   "name": "Roger F. Wicker",
+   "party": "Republican",
+   "phone": "(202) 224-6253",
+   "tel": "+12022246253",
+   "url": "https://www.wicker.senate.gov/public/index.cfm/contact"
+  }
+ ],
+ "Missouri": [
+  {
+   "name": "Josh Hawley",
+   "party": "Republican",
+   "phone": "(202) 224-6154",
+   "tel": "+12022246154",
+   "url": "https://www.hawley.senate.gov/contact-senator-hawley"
+  },
+  {
+   "name": "Eric Schmitt",
+   "party": "Republican",
+   "phone": "(202) 224-5721",
+   "tel": "+12022245721",
+   "url": "https://www.schmitt.senate.gov/contact/"
+  }
+ ],
+ "Montana": [
+  {
+   "name": "Steve Daines",
+   "party": "Republican",
+   "phone": "(202) 224-2651",
+   "tel": "+12022242651",
+   "url": "https://www.daines.senate.gov/connect/email-steve"
+  },
+  {
+   "name": "Tim Sheehy",
+   "party": "Republican",
+   "phone": "(202) 224-2644",
+   "tel": "+12022242644",
+   "url": "https://www.sheehy.senate.gov/contact/"
+  }
+ ],
+ "Nebraska": [
+  {
+   "name": "Deb Fischer",
+   "party": "Republican",
+   "phone": "(202) 224-6551",
+   "tel": "+12022246551",
+   "url": "https://www.fischer.senate.gov/public/index.cfm/contact"
+  },
+  {
+   "name": "Pete Ricketts",
+   "party": "Republican",
+   "phone": "(202) 224-4224",
+   "tel": "+12022244224",
+   "url": "https://www.ricketts.senate.gov/contact/"
+  }
+ ],
+ "Nevada": [
+  {
+   "name": "Catherine Cortez Masto",
+   "party": "Democrat",
+   "phone": "(202) 224-3542",
+   "tel": "+12022243542",
+   "url": "https://www.cortezmasto.senate.gov/contact"
+  },
+  {
+   "name": "Jacky Rosen",
+   "party": "Democrat",
+   "phone": "(202) 224-6244",
+   "tel": "+12022246244",
+   "url": "https://www.rosen.senate.gov/contact_jacky"
+  }
+ ],
+ "New Hampshire": [
+  {
+   "name": "Margaret Wood Hassan",
+   "party": "Democrat",
+   "phone": "(202) 224-3324",
+   "tel": "+12022243324",
+   "url": "https://www.hassan.senate.gov/content/contact-senator"
+  },
+  {
+   "name": "Jeanne Shaheen",
+   "party": "Democrat",
+   "phone": "(202) 224-2841",
+   "tel": "+12022242841",
+   "url": "https://www.shaheen.senate.gov/contact/contact-jeanne"
+  }
+ ],
+ "New Jersey": [
+  {
+   "name": "Cory A. Booker",
+   "party": "Democrat",
+   "phone": "(202) 224-3224",
+   "tel": "+12022243224",
+   "url": "https://www.booker.senate.gov/?p=contact"
+  },
+  {
+   "name": "Andy Kim",
+   "party": "Democrat",
+   "phone": "(202) 224-4744",
+   "tel": "+12022244744",
+   "url": "https://www.kim.senate.gov/contact/"
+  }
+ ],
+ "New Mexico": [
+  {
+   "name": "Martin Heinrich",
+   "party": "Democrat",
+   "phone": "(202) 224-5521",
+   "tel": "+12022245521",
+   "url": "https://www.heinrich.senate.gov/contact"
+  },
+  {
+   "name": "Ben Ray Luján",
+   "party": "Democrat",
+   "phone": "(202) 224-6621",
+   "tel": "+12022246621",
+   "url": "https://www.lujan.senate.gov/contact/"
+  }
+ ],
+ "New York": [
+  {
+   "name": "Kirsten E. Gillibrand",
+   "party": "Democrat",
+   "phone": "(202) 224-4451",
+   "tel": "+12022244451",
+   "url": "https://www.gillibrand.senate.gov/contact/email-me"
+  },
+  {
+   "name": "Charles E. Schumer",
+   "party": "Democrat",
+   "phone": "(202) 224-6542",
+   "tel": "+12022246542",
+   "url": "https://www.schumer.senate.gov/contact/email-chuck"
+  }
+ ],
+ "North Carolina": [
+  {
+   "name": "Ted Budd",
+   "party": "Republican",
+   "phone": "(202) 224-3154",
+   "tel": "+12022243154",
+   "url": "https://www.budd.senate.gov/contact/"
+  },
+  {
+   "name": "Thom Tillis",
+   "party": "Republican",
+   "phone": "(202) 224-6342",
+   "tel": "+12022246342",
+   "url": "https://www.tillis.senate.gov/public/index.cfm/email-me"
+  }
+ ],
+ "North Dakota": [
+  {
+   "name": "Kevin Cramer",
+   "party": "Republican",
+   "phone": "(202) 224-2043",
+   "tel": "+12022242043",
+   "url": "https://www.cramer.senate.gov/contact/contact-kevin"
+  },
+  {
+   "name": "John Hoeven",
+   "party": "Republican",
+   "phone": "(202) 224-2551",
+   "tel": "+12022242551",
+   "url": "https://www.hoeven.senate.gov/contact/contact-the-senator"
+  }
+ ],
+ "Ohio": [
+  {
+   "name": "Jon Husted",
+   "party": "Republican",
+   "phone": "(202) 224-3353",
+   "tel": "+12022243353",
+   "url": "https://www.husted.senate.gov/contact/"
+  },
+  {
+   "name": "Bernie Moreno",
+   "party": "Republican",
+   "phone": "(202) 224-2315",
+   "tel": "+12022242315",
+   "url": "https://www.moreno.senate.gov/contact/"
+  }
+ ],
+ "Oklahoma": [
+  {
+   "name": "Alan Armstrong",
+   "party": "Republican",
+   "phone": "(202) 224-4721",
+   "tel": "+12022244721",
+   "url": "https://www.armstrong.senate.gov/contact/"
+  },
+  {
+   "name": "James Lankford",
+   "party": "Republican",
+   "phone": "(202) 224-5754",
+   "tel": "+12022245754",
+   "url": "https://www.lankford.senate.gov/contact/email"
+  }
+ ],
+ "Oregon": [
+  {
+   "name": "Jeff Merkley",
+   "party": "Democrat",
+   "phone": "(202) 224-3753",
+   "tel": "+12022243753",
+   "url": "https://www.merkley.senate.gov/contact/"
+  },
+  {
+   "name": "Ron Wyden",
+   "party": "Democrat",
+   "phone": "(202) 224-5244",
+   "tel": "+12022245244",
+   "url": "https://www.wyden.senate.gov/contact/"
+  }
+ ],
+ "Pennsylvania": [
+  {
+   "name": "John Fetterman",
+   "party": "Democrat",
+   "phone": "(202) 224-4254",
+   "tel": "+12022244254",
+   "url": "https://www.fetterman.senate.gov/contact/"
+  },
+  {
+   "name": "David McCormick",
+   "party": "Republican",
+   "phone": "(202) 224-6324",
+   "tel": "+12022246324",
+   "url": "https://www.mccormick.senate.gov/contact/"
+  }
+ ],
+ "Rhode Island": [
+  {
+   "name": "Jack Reed",
+   "party": "Democrat",
+   "phone": "(202) 224-4642",
+   "tel": "+12022244642",
+   "url": "https://www.reed.senate.gov/contact/"
+  },
+  {
+   "name": "Sheldon Whitehouse",
+   "party": "Democrat",
+   "phone": "(202) 224-2921",
+   "tel": "+12022242921",
+   "url": "https://www.whitehouse.senate.gov/contact/email-sheldon"
+  }
+ ],
+ "South Carolina": [
+  {
+   "name": "Darline Graham",
+   "party": "Republican",
+   "phone": "(202) 224-5972",
+   "tel": "+12022245972",
+   "url": "https://www.dgraham.senate.gov/"
+  },
+  {
+   "name": "Tim Scott",
+   "party": "Republican",
+   "phone": "(202) 224-6121",
+   "tel": "+12022246121",
+   "url": "https://www.scott.senate.gov/contact/email-me"
+  }
+ ],
+ "South Dakota": [
+  {
+   "name": "Mike Rounds",
+   "party": "Republican",
+   "phone": "(202) 224-5842",
+   "tel": "+12022245842",
+   "url": "https://www.rounds.senate.gov/contact/email-mike"
+  },
+  {
+   "name": "John Thune",
+   "party": "Republican",
+   "phone": "(202) 224-2321",
+   "tel": "+12022242321",
+   "url": "https://www.thune.senate.gov/public/index.cfm/contact"
+  }
+ ],
+ "Tennessee": [
+  {
+   "name": "Marsha Blackburn",
+   "party": "Republican",
+   "phone": "(202) 224-3344",
+   "tel": "+12022243344",
+   "url": "https://www.blackburn.senate.gov/email-me"
+  },
+  {
+   "name": "Bill Hagerty",
+   "party": "Republican",
+   "phone": "(202) 224-4944",
+   "tel": "+12022244944",
+   "url": "https://www.hagerty.senate.gov/email-me/"
+  }
+ ],
+ "Texas": [
+  {
+   "name": "John Cornyn",
+   "party": "Republican",
+   "phone": "(202) 224-2934",
+   "tel": "+12022242934",
+   "url": "https://www.cornyn.senate.gov/contact"
+  },
+  {
+   "name": "Ted Cruz",
+   "party": "Republican",
+   "phone": "(202) 224-5922",
+   "tel": "+12022245922",
+   "url": "https://www.cruz.senate.gov/?p=form&id=16"
+  }
+ ],
+ "Utah": [
+  {
+   "name": "John R. Curtis",
+   "party": "Republican",
+   "phone": "(202) 224-5251",
+   "tel": "+12022245251",
+   "url": "https://www.curtis.senate.gov/contact/"
+  },
+  {
+   "name": "Mike Lee",
+   "party": "Republican",
+   "phone": "(202) 224-5444",
+   "tel": "+12022245444",
+   "url": "https://www.lee.senate.gov/public/index.cfm/contact"
+  }
+ ],
+ "Vermont": [
+  {
+   "name": "Bernard Sanders",
+   "party": "Independent",
+   "phone": "(202) 224-5141",
+   "tel": "+12022245141",
+   "url": "https://www.sanders.senate.gov/contact/"
+  },
+  {
+   "name": "Peter Welch",
+   "party": "Democrat",
+   "phone": "(202) 224-4242",
+   "tel": "+12022244242",
+   "url": "https://www.welch.senate.gov/email-peter/"
+  }
+ ],
+ "Virginia": [
+  {
+   "name": "Tim Kaine",
+   "party": "Democrat",
+   "phone": "(202) 224-4024",
+   "tel": "+12022244024",
+   "url": "https://www.kaine.senate.gov/contact"
+  },
+  {
+   "name": "Mark R. Warner",
+   "party": "Democrat",
+   "phone": "(202) 224-2023",
+   "tel": "+12022242023",
+   "url": "https://www.warner.senate.gov/public/index.cfm?p=Contact"
+  }
+ ],
+ "Washington": [
+  {
+   "name": "Maria Cantwell",
+   "party": "Democrat",
+   "phone": "(202) 224-3441",
+   "tel": "+12022243441",
+   "url": "https://www.cantwell.senate.gov/public/index.cfm/email-maria"
+  },
+  {
+   "name": "Patty Murray",
+   "party": "Democrat",
+   "phone": "(202) 224-2621",
+   "tel": "+12022242621",
+   "url": "https://www.murray.senate.gov/write-to-patty/"
+  }
+ ],
+ "West Virginia": [
+  {
+   "name": "Shelley Moore Capito",
+   "party": "Republican",
+   "phone": "(202) 224-6472",
+   "tel": "+12022246472",
+   "url": "https://www.capito.senate.gov/contact/contact-shelley"
+  },
+  {
+   "name": "James C. Justice",
+   "party": "Republican",
+   "phone": "(202) 224-3954",
+   "tel": "+12022243954",
+   "url": "https://www.justice.senate.gov/contact/"
+  }
+ ],
+ "Wisconsin": [
+  {
+   "name": "Tammy Baldwin",
+   "party": "Democrat",
+   "phone": "(202) 224-5653",
+   "tel": "+12022245653",
+   "url": "https://www.baldwin.senate.gov/feedback"
+  },
+  {
+   "name": "Ron Johnson",
+   "party": "Republican",
+   "phone": "(202) 224-5323",
+   "tel": "+12022245323",
+   "url": "https://www.ronjohnson.senate.gov/public/index.cfm/email-the-senator"
+  }
+ ],
+ "Wyoming": [
+  {
+   "name": "John Barrasso",
+   "party": "Republican",
+   "phone": "(202) 224-6441",
+   "tel": "+12022246441",
+   "url": "https://www.barrasso.senate.gov/public/index.cfm/contact-form"
+  },
+  {
+   "name": "Cynthia M. Lummis",
+   "party": "Republican",
+   "phone": "(202) 224-3424",
+   "tel": "+12022243424",
+   "url": "https://www.lummis.senate.gov/contact/contact-form/"
+  }
+ ]
+};
+(function () {
+  var select = document.getElementById("state-select");
+  var out = document.getElementById("senators");
+  function esc(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+  }
+  function render(state) {
+    var list = SENATORS[state];
+    if (!list) { out.innerHTML = ""; return; }
+    var htmlOut = '<p class="group-label center">Your senators — ' + esc(state) + '</p>';
+    list.forEach(function (s) {
+      var last = s.name.split(" ").slice(-1)[0];
+      htmlOut += '<article class="card senator-card">'
+        + '<h3 class="card-title">' + esc(s.name) + '</h3>'
+        + '<p class="senator-party">' + esc(s.party) + ' — U.S. Senator for ' + esc(state) + '</p>'
+        + '<div class="btn-row senator-btns">'
+        + '<a class="btn btn-primary" href="' + esc(s.url) + '" target="_blank" rel="noopener">Email Sen. ' + esc(last) + '</a>'
+        + '<a class="btn btn-ghost" href="tel:' + esc(s.tel) + '">Call ' + esc(s.phone) + '</a>'
+        + '</div></article>';
+    });
+    out.innerHTML = htmlOut;
+  }
+  select.addEventListener("change", function () { render(select.value); });
+
+  var copyBtn = document.getElementById("copy-btn");
+  var copyNote = document.getElementById("copy-note");
+  var msg = document.getElementById("message-text").textContent.trim();
+  copyBtn.addEventListener("click", function () {
+    function done() { copyNote.textContent = "Copied. Now paste it into your senator's email form."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(msg).then(done, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var range = document.createRange();
+      range.selectNodeContents(document.getElementById("message-text"));
+      var sel = window.getSelection();
+      sel.removeAllRanges(); sel.addRange(range);
+      try { document.execCommand("copy"); done(); }
+      catch (e) { copyNote.textContent = "Press and hold the message above to copy it."; }
+    }
+  });
+})();
+</script>
+</body>
+</html>
