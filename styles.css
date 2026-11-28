@@ -87,6 +87,22 @@ h3{font-size:20px;line-height:1.25;margin:26px 0 10px;font-weight:700}
 .video-sm{max-width:300px}
 .video-wide{max-width:520px}
 .video-wide video{aspect-ratio:11/10;object-fit:contain}
+.video-soon{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  width:100%;aspect-ratio:2/3;border-radius:var(--radius);background:#000;
+  border:1px solid var(--panel-line);box-shadow:0 18px 44px rgba(0,0,0,.55);
+  padding:26px;text-align:center;
+}
+.video-soon .vs-kicker{
+  color:var(--amber);font-weight:700;font-size:13px;
+  text-transform:uppercase;letter-spacing:.14em;margin:0;
+}
+.video-soon .vs-title{
+  font-family:"Arial Narrow","Liberation Sans Narrow","Helvetica Neue",Arial,sans-serif;
+  text-transform:uppercase;letter-spacing:.03em;
+  font-size:25px;font-weight:700;line-height:1.2;margin:0;
+}
+.video-soon p{margin:0;color:var(--muted);font-size:15.5px;max-width:270px}
 section[id]{scroll-margin-top:110px}
 
 /* Buttons */
